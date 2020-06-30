@@ -1,0 +1,49 @@
+We are going to convert our modularized Distributions code into a Python PACKAGE
+
+A package is a collection of modules placed into a directory
+
+A python package should contain __init__.py file
+this file will tell python that this folder contains a package 
+code in the init file gets run whenever you import a python package.
+This init file is importing gaussian class from the Gaussian Distributions module.
+We can even left __init__.py file empty-> works too. But we have done this to save some time as we donot need to explicitly
+import gaussian class in all the files 
+
+in Gaussiandistribution.py in 3rd line "from .Generaldistribution import Distribution" we added '.' before Generealdistribution
+which is required for python3 
+
+We also need Setup.py file  in the same folder as Distributions
+this file is necessary for pip installation
+pip will automatically look for this file 
+this file contains the meta data about the package like package name, version, description , etc
+
+
+######TO INSTALL#####
+
+go to the terminal
+	-> go to the directory with setup.py file
+	#cd /..../python_package
+	
+	->then
+	#pip install .
+
+Now we can use this python package locally as
+
+#python
+
+>>>from distributions import Gaussian
+>>>gaussian_one = Gaussian(10,5)
+>>>gaussian_one.mean
+10
+>>>gaussian_one.stdev
+5
+
+--> To see where the package is installed locally
+
+>>>import distributions
+>>>distributions.__file__
+\....\....\....\....\ <- this the position where this package is installed locally
+
+
+
+THIS IS HOW YOU CAN CREATE AND INSTALL PY PACKAGE LOCALLY
